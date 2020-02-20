@@ -6,7 +6,16 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
-  pass
+  possibilities = [1,1,2]
+  combinations = 0
+  if n < 3: combinations = possibilities[n]
+  else:
+    for _ in range(3, n):
+      possibilities.insert(3, possibilities[0] + possibilities[1] + possibilities[2])
+      possibilities.pop(0)
+    for n in possibilities:
+      combinations += n
+  return combinations
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
