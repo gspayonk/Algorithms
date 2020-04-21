@@ -2,8 +2,12 @@
 
 import sys
 
-def making_change(amount, denominations):
-  pass 
+def making_change(amount, denominations = None):
+      moolah = [1] * (amount + 1)
+      for i in range(len(denominations) - 1):
+            for k in range(denominations[i + 1], amount + 1):
+                  moolah[k] += moolah[k - denominations [i + 1]]
+      return moolah[-1]
 
 
 if __name__ == "__main__":

@@ -3,7 +3,22 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+    move_select = ['rock', 'paper', 'scissors']
+    hands = []
+
+    def rps_fun(num, list=[]):
+        if num == 0:
+            return hands.append(list)
+        else:
+            for i in range(len(move_select)):
+                rps_fun(num - 1, list + [move_select[i]])
+
+        return [hands]
+        
+    rps_fun(n)
+
+    return hands
+  
 
 
 if __name__ == "__main__":
